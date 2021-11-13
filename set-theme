@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+  then
+    echo "No arguments supplied, choose between {light or dark}"
+fi
+
+case "$1" in
+     "")
+        echo "Provide a theme, light or dark"
+        exit 1;;
+     "light")
+        echo "Bleah! I hope this is for a good cause"
+        run-parts /usr/local/share/light-mode.d/
+        exit 1;;
+     "dark")
+        echo "Welcome to the dark side!"
+        run-parts /usr/local/share/dark-mode.d/
+        exit 1;;
+     *)
+        echo "wtf did you insert? only light or dark accepted"
+        exit 1;;
+esac
